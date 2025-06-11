@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رپر ایرانی | پیش‌فروش آهنگ</title>
+    <!-- فونت نستعلیق -->
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/sahel-font@v3.4.0/dist/font-face.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+    <!-- آیکون‌ها -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --dark: #1a1a1a;
+            --darker: #0f0f0f;
+            --light: #e0e0e0;
+            --accent: #ff5722;
+            --spotify: #1DB954;
+            --youtube: #FF0000;
+            --apple: #FC3C44;
+            --soundcloud: #ff7700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--light);
+            min-height: 100vh;
+            padding-bottom: 50px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* الگوی ایرانی (تخت جمشید) */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="rgba(142,68,173,0.08)" stroke-width="2"/><path d="M50,50 L150,50 L150,150 L50,150 Z" fill="none" stroke="rgba(255,87,34,0.08)" stroke-width="2"/><path d="M80,80 L120,80 L120,120 L80,120 Z" fill="none" stroke="rgba(255,87,34,0.08)" stroke-width="1"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+        
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* هدر با افکت شیشه‌ای */
+        header {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(30, 30, 30, 0.6);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(142, 68, 173, 0.4);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            animation: rotateLogo 8s linear infinite;
+        }
+        
+        .logo-icon::before {
+            content: "☥";
+            font-size: 24px;
+            color: var(--light);
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+        
+        @keyframes rotateLogo {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+            text-shadow: 0 0 10px rgba(255,87,34,0.3);
+            font-family: 'Sahel', sans-serif;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255,87,34,0.5);
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* بخش‌های اصلی */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 30px;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+            font-family: 'Sahel', sans-serif;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(142,68,173,0.5);
+        }
+        
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* اسلایدر جدید */
+        .slider-container {
+            margin: 40px auto;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 400px;
+        }
+        
+        .slider-item {
+            min-width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .slider-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .slider-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .slider-title {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            font-family: 'Sahel', sans-serif;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+        }
+        
+        .slider-desc {
+            font-size: 1.1rem;
+            max-width: 600px;
+            color: #eee;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .slider-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+            font-size: 1.2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .slider-btn:hover {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+        
+        .slider-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .indicator.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+        
+        /* کارت آهنگ با افکت شیشه‌ای */
+        .song-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .song-card {
+            background: rgba(40, 40, 40, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .song-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(142, 68, 173, 0.4);
+            border: 1px solid rgba(255, 87, 34, 0.5);
+        }
+        
+        .pre-sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--accent), #ff9800);
+            color: var(--darker);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 2;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 15px rgba(255,87,34,0.5);
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 87, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+        }
+        
+        .cover-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .cover-container::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(26,26,26,0.9), transparent);
+        }
+        
+        .song-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .song-card:hover .song-cover {
+            transform: scale(1.15);
+        }
+        
+        .song-info {
+            padding: 20px;
+        }
+        
+        .song-title {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--accent);
+            font-weight: 800;
+            text-shadow: 0 0 10px rgba(255,87,34,0.3);
+            font-family: 'Sahel', sans-serif;
+        }
+        
+        .song-desc {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            height: 70px;
+            overflow: hidden;
+            text-align: justify;
+        }
+        
+        /* دکمه‌های پلتفرم‌ها با رنگ‌های اختصاصی */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stream-btn {
+            flex: 1;
+            min-width: 120px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .stream-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: width 0.3s;
+            z-index: -1;
+        }
+        
+        .stream-btn:hover::before {
+            width: 100%;
+        }
+        
+        .stream-btn.spotify {
+            background: rgba(29, 185, 84, 0.2);
+            border: 1px solid var(--spotify);
+        }
+        
+        .stream-btn.youtube {
+            background: rgba(255, 0, 0, 0.2);
+            border: 1px solid var(--youtube);
+        }
+        
+        .stream-btn.apple {
+            background: rgba(252, 60, 68, 0.2);
+            border: 1px solid var(--apple);
+        }
+        
+        .stream-btn.soundcloud {
+            background: rgba(255, 119, 0, 0.2);
+            border: 1px solid var(--soundcloud);
+        }
+        
+        .buy-btn {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            font-size: 1rem;
+            width: 100%;
+            justify-content: center;
+            margin-top: 15px;
+            box-shadow: 0 0 15px rgba(255,87,34,0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .buy-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+        
+        .buy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255,87,34,0.6);
+        }
+        
+        .buy-btn:hover::after {
+            transform: translateX(100%);
+        }
+        
+        /* بخش همه آثار */
+        .all-works {
+            margin: 60px auto;
+            max-width: 1000px;
+        }
+        
+        .works-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 0 10px;
+        }
+        
+        .sort-options {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(142,68,173,0.3);
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: var(--light);
+            font-size: 0.95rem;
+        }
+        
+        .works-list {
+            background: rgba(40, 40, 40, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .work-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .work-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .work-icon {
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            margin-left: 15px;
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        
+        .work-details {
+            flex: 1;
+        }
+        
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-family: 'Sahel', sans-serif;
+        }
+        
+        .work-meta {
+            display: flex;
+            gap: 15px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        .work-action {
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 140px;
+            justify-content: center;
+        }
+        
+        .work-action.presale {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+        }
+        
+        .work-action.listen {
+            background: linear-gradient(135deg, var(--spotify), #1ed760);
+        }
+        
+        /* انیمیشن‌های پس‌زمینه */
+        .floating {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(142,68,173,0.3) 0%, transparent 70%);
+            z-index: -1;
+            animation: float 15s infinite linear;
+        }
+        
+        .floating:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 5%;
+            animation-duration: 20s;
+        }
+        
+        .floating:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: 50%;
+            right: 10%;
+            animation-duration: 25s;
+            background: radial-gradient(circle, rgba(255,87,34,0.3) 0%, transparent 70%);
+        }
+        
+        .floating:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 20%;
+            left: 20%;
+            animation-duration: 15s;
+            background: radial-gradient(circle, rgba(29,185,84,0.2) 0%, transparent 70%);
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(20px, 50px) rotate(90deg); }
+            50% { transform: translate(40px, 0) rotate(180deg); }
+            75% { transform: translate(20px, -50px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        
+        /* فوتر */
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid rgba(142, 68, 173, 0.3);
+            color: #aaa;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px);
+            border-radius: 15px 15px 0 0;
+            position: relative;
+        }
+        
+        footer::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary), transparent);
+        }
+        
+        /* صفحه آهنگ */
+        .song-page {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(40, 40, 40, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(142, 68, 173, 0.3);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        
+        .song-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .song-page-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .song-header-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+        }
+        
+        .song-page-title {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-family: 'Sahel', sans-serif;
+            text-shadow: 0 0 10px rgba(0,0,0,0.7);
+        }
+        
+        .song-artist {
+            font-size: 1.5rem;
+            color: #eee;
+            margin-bottom: 15px;
+        }
+        
+        .song-meta {
+            display: flex;
+            gap: 20px;
+            color: #aaa;
+            font-size: 1rem;
+        }
+        
+        .song-content {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+        
+        .song-description {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        
+        .song-details {
+            background: rgba(0,0,0,0.2);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .detail-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .detail-label {
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+        
+        .detail-value {
+            font-size: 1.1rem;
+        }
+        
+        .song-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            color: #aaa;
+        }
+        
+        .comments-section {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .comment {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .comment-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .comment-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: grid;
+            place-items: center;
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .comment-author {
+            font-weight: bold;
+        }
+        
+        .comment-date {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-right: 10px;
+        }
+        
+        .comment-text {
+            line-height: 1.6;
+        }
+        
+        /* نسخه موبایل */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+                margin: 30px 0;
+            }
+            
+            .song-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .floating {
+                display: none;
+            }
+            
+            .slider-container {
+                height: 300px;
+            }
+            
+            .slider-title {
+                font-size: 2rem;
+            }
+            
+            .works-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .song-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .song-page-title {
+                font-size: 2.2rem;
+            }
+            
+            .work-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .work-action {
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- انیمیشن‌های پس‌زمینه -->
+    <div class="floating"></div>
+    <div class="floating"></div>
+    <div class="floating"></div>
+    
+    <header>
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <div class="logo-text">هنرمند رپ</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#pre-sale">پیش‌فروش</a></li>
+                <li><a href="#new">جدیدترین‌ها</a></li>
+                <li><a href="#archive">آثار گذشته</a></li>
+                <li><a href="#all-works">همه آثار</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- اسلایدر آهنگ‌های جدید -->
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slider-item">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="آهنگ جدید" class="slider-image">
+                <div class="slider-content">
+                    <h2 class="slider-title">شب‌های تهران</h2>
+                    <p class="slider-desc">تک‌آهنگ جدید با همکاری خواننده مهمان. ترانه‌ای درباره شب‌های تهران و حال و هوای خاص آن.</p>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="آهنگ جدید" class="slider-image">
+                <div class="slider-content">
+                    <h2 class="slider-title">راه قدیم</h2>
+                    <p class="slider-desc">بازگشت به سبک قدیمی با مضامین اجتماعی و نوستالژیک. بخشی از آلبوم جدید "خاطرات".</p>
+                </div>
+            </div>
+            <div class="slider-item">
+                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="آهنگ جدید" class="slider-image">
+                <div class="slider-content">
+                    <h2 class="slider-title">رهایم کن</h2>
+                    <p class="slider-desc">آهنگ تکی با مضامین عاشقانه و اجتماعی. منتشر شده در پلتفرم‌های جهانی.</p>
+                </div>
+            </div>
+        </div>
+        <div class="slider-nav">
+            <button class="slider-btn prev"><i class="fas fa-chevron-right"></i></button>
+            <button class="slider-btn next"><i class="fas fa-chevron-left"></i></button>
+        </div>
+        <div class="slider-indicators">
+            <div class="indicator active"></div>
+            <div class="indicator"></div>
+            <div class="indicator"></div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- بخش پیش‌فروش -->
+        <section id="pre-sale">
+            <h2 class="section-title">آهنگ‌های پیش‌فروش</h2>
+            <div class="song-grid">
+                <div class="song-card">
+                    <div class="pre-sale-badge">پیش‌فروش ویژه</div>
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">شب‌های تهران</h3>
+                        <p class="song-desc">تک‌آهنگ جدید با همکاری خواننده مهمان. ترانه‌ای درباره شب‌های تهران و حال و هوای خاص آن. این آهنگ اولین همکاری من با خواننده پاپ است.</p>
+                        <button class="buy-btn">
+                            <i class="fas fa-gem"></i>
+                            پیش‌خرید انحصاری (۲۵۰,۰۰۰ تومان)
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="song-card">
+                    <div class="pre-sale-badge">پیش‌فروش</div>
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">راه قدیم</h3>
+                        <p class="song-desc">بازگشت به سبک قدیمی با مضامین اجتماعی و نوستالژیک. این آهنگ بخشی از آلبوم جدید "خاطرات" خواهد بود.</p>
+                        <button class="buy-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            پیش‌خرید (۲۰۰,۰۰۰ تومان)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- بخش جدیدترین‌ها -->
+        <section id="new" style="margin-top: 60px;">
+            <h2 class="section-title">جدیدترین انتشارات</h2>
+            <div class="song-grid">
+                <div class="song-card">
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">رهایم کن</h3>
+                        <p class="song-desc">آهنگ تکی با مضامین عاشقانه و اجتماعی. منتشر شده در پلتفرم‌های جهانی و با استقبال خوبی روبرو شده است.</p>
+                        <div class="action-buttons">
+                            <button class="stream-btn spotify"><i class="fab fa-spotify"></i> اسپاتیفای</button>
+                            <button class="stream-btn apple"><i class="fab fa-apple"></i> اپل موزیک</button>
+                            <button class="stream-btn youtube"><i class="fab fa-youtube"></i> یوتیوب</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="song-card">
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">پرواز</h3>
+                        <p class="song-desc">همکاری با دی جی بین‌المللی. این ترک الکترونیک در چارت‌های جهانی رتبه خوبی کسب کرده است.</p>
+                        <div class="action-buttons">
+                            <button class="stream-btn spotify"><i class="fab fa-spotify"></i> اسپاتیفای</button>
+                            <button class="stream-btn soundcloud"><i class="fab fa-soundcloud"></i> ساوندکلاود</button>
+                            <button class="stream-btn youtube"><i class="fab fa-youtube"></i> یوتیوب</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- بخش آثار گذشته -->
+        <section id="archive" style="margin-top: 60px;">
+            <h2 class="section-title">آثار گذشته</h2>
+            <div class="song-grid">
+                <div class="song-card">
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">آلبوم خیابون‌ها</h3>
+                        <p class="song-desc">اولین آلبوم رسمی با ۱۲ قطعه منتشر شده در سال ۱۴۰۲. این آلبوم در جشنواره موسیقی رپ برنده جایزه شد.</p>
+                        <div class="action-buttons">
+                            <button class="stream-btn spotify"><i class="fab fa-spotify"></i> اسپاتیفای</button>
+                            <button class="stream-btn youtube"><i class="fab fa-youtube"></i> یوتیوب</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="song-card">
+                    <div class="cover-container">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="کاور آهنگ" class="song-cover">
+                    </div>
+                    <div class="song-info">
+                        <h3 class="song-title">EP نیمه شب</h3>
+                        <p class="song-desc">موسیقی تجربی با ۵ ترک متفاوت. منتشر شده در سال ۱۴۰۱ و نقطه عطفی در کارنامه هنری من محسوب می‌شود.</p>
+                        <div class="action-buttons">
+                            <button class="stream-btn spotify"><i class="fab fa-spotify"></i> اسپاتیفای</button>
+                            <button class="stream-btn apple"><i class="fab fa-apple"></i> اپل موزیک</button>
+                            <button class="stream-btn soundcloud"><i class="fab fa-soundcloud"></i> ساوندکلاود</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- بخش همه آثار -->
+        <section id="all-works" class="all-works">
+            <h2 class="section-title">همه آثار</h2>
+            <div class="works-header">
+                <h3>لیست کامل آثار</h3>
+                <select class="sort-options">
+                    <option value="newest">جدیدترین</option>
+                    <option value="oldest">قدیمی‌ترین</option>
+                    <option value="popular">محبوب‌ترین</option>
+                </select>
+            </div>
+            <div class="works-list">
+                <div class="work-item" onclick="showSongPage('شب‌های تهران')">
+                    <div class="work-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="work-details">
+                        <div class="work-title">شب‌های تهران</div>
+                        <div class="work-meta">
+                            <span>تک‌آهنگ</span>
+                            <span>۱۴۰۳</span>
+                            <span>رپ اجتماعی</span>
+                        </div>
+                    </div>
+                    <div class="work-action presale">
+                        <i class="fas fa-shopping-cart"></i>
+                        پیش‌خرید
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="showSongPage('رهایم کن')">
+                    <div class="work-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="work-details">
+                        <div class="work-title">رهایم کن</div>
+                        <div class="work-meta">
+                            <span>تک‌آهنگ</span>
+                            <span>۱۴۰۳</span>
+                            <span>رپ عاشقانه</span>
+                        </div>
+                    </div>
+                    <div class="work-action listen">
+                        <i class="fas fa-headphones"></i>
+                        گوش کنید
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="showSongPage('راه قدیم')">
+                    <div class="work-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="work-details">
+                        <div class="work-title">راه قدیم</div>
+                        <div class="work-meta">
+                            <span>تک‌آهنگ</span>
+                            <span>۱۴۰۳</span>
+                            <span>رپ سنتی</span>
+                        </div>
+                    </div>
+                    <div class="work-action presale">
+                        <i class="fas fa-shopping-cart"></i>
+                        پیش‌خرید
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="showSongPage('آلبوم خیابون‌ها')">
+                    <div class="work-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <div class="work-details">
+                        <div class="work-title">آلبوم خیابون‌ها</div>
+                        <div class="work-meta">
+                            <span>آلبوم</span>
+                            <span>۱۴۰۲</span>
+                            <span>رپ اجتماعی</span>
+                        </div>
+                    </div>
+                    <div class="work-action listen">
+                        <i class="fas fa-headphones"></i>
+                        گوش کنید
+                    </div>
+                </div>
+                
+                <div class="work-item" onclick="showSongPage('EP نیمه شب')">
+                    <div class="work-icon">
+                        <i class="fas fa-compact-disc"></i>
+                    </div>
+                    <div class="work-details">
+                        <div class="work-title">EP نیمه شب</div>
+                        <div class="work-meta">
+                            <span>EP</span>
+                            <span>۱۴۰۱</span>
+                            <span>رپ تجربی</span>
+                        </div>
+                    </div>
+                    <div class="work-action listen">
+                        <i class="fas fa-headphones"></i>
+                        گوش کنید
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- صفحه آهنگ (پنهان در حالت عادی) -->
+    <div id="song-page" class="song-page" style="display: none;">
+        <div class="song-header">
+            <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="کاور آهنگ" class="song-page-cover">
+            <div class="song-header-content">
+                <h2 class="song-page-title" id="song-page-title">شب‌های تهران</h2>
+                <div class="song-artist">هنرمند رپ</div>
+                <div class="song-meta">
+                    <span>تک‌آهنگ</span>
+                    <span>۱۴۰۳</span>
+                    <span>رپ اجتماعی</span>
+                </div>
+            </div>
+        </div>
+        <div class="song-content">
+            <div class="song-description">
+                <p>تک‌آهنگ جدید با همکاری خواننده مهمان. ترانه‌ای درباره شب‌های تهران و حال و هوای خاص آن. این آهنگ اولین همکاری من با خواننده پاپ است که ترکیب جالبی از سبک‌های رپ و پاپ را ایجاد کرده است.</p>
+                <p>متن آهنگ به زندگی شبانه در تهران و تجربیات مختلفی که مردم در این شهر بزرگ دارند می‌پردازد. از شلوغی خیابان‌ها تا سکوت پارک‌های شبانه، همه در این آهنگ به تصویر کشیده شده‌اند.</p>
+                <p>موزیک ویدیوی این آهنگ در مناطق مختلف تهران از جمله برج میلاد، پل طبیعت و خیابان ولیعصر فیلمبرداری شده است.</p>
+                
+                <div class="comments-section">
+                    <h3>نظرات کاربران</h3>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">م</div>
+                            <div class="comment-author">محمد رضایی</div>
+                            <div class="comment-date">۲ روز پیش</div>
+                        </div>
+                        <div class="comment-text">
+                            واقعا عالی بود! ترکیب صداها و موسیقی فوق‌العاده‌ست. منتظر انتشار کاملش هستم.
+                        </div>
+                    </div>
+                    <div class="comment">
+                        <div class="comment-header">
+                            <div class="comment-avatar">س</div>
+                            <div class="comment-author">سارا محمدی</div>
+                            <div class="comment-date">۵ روز پیش</div>
+                        </div>
+                        <div class="comment-text">
+                            ترانه‌ها خیلی عمیق و تاثیرگذار بودن. واقعا حس شب‌های تهران رو منتقل می‌کنه.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="song-details">
+                <div class="detail-item">
+                    <div class="detail-label">وضعیت</div>
+                    <div class="detail-value">در حال پیش‌فروش</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">تاریخ انتشار</div>
+                    <div class="detail-value">۱۵ مرداد ۱۴۰۳</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">ژانر</div>
+                    <div class="detail-value">رپ اجتماعی، پاپ</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">مدت زمان</div>
+                    <div class="detail-value">۳:۴۵ دقیقه</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">همکاری</div>
+                    <div class="detail-value">خواننده مهمان: امیرحسین</div>
+                </div>
+                
+                <div class="song-stats">
+                    <div class="stat-box">
+                        <div class="stat-value">۲۵۰+</div>
+                        <div class="stat-label">پیش‌فروش</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value">۱۲K</div>
+                        <div class="stat-label">تعداد علاقه‌مندی</div>
+                    </div>
+                </div>
+                
+                <button class="buy-btn" style="margin-top: 20px;">
+                    <i class="fas fa-gem"></i>
+                    پیش‌خرید انحصاری (۲۵۰,۰۰۰ تومان)
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© ۱۴۰۲ - تمامی حقوق محفوظ است | طراحی شده با ❤️ برای هنرمند رپ</p>
+        <p>استفاده از المان‌های فرهنگی ایران با افتخار</p>
+    </footer>
+
+    <script>
+        // اسکریپت اسلایدر
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slider-item');
+        const indicators = document.querySelectorAll('.indicator');
+        const nextBtn = document.querySelector('.next');
+        const prevBtn = document.querySelector('.prev');
+        
+        let currentSlide = 0;
+        const slideCount = slides.length;
+        
+        // تنظیم اسلایدر
+        function goToSlide(slideIndex) {
+            slider.style.transform = `translateX(-${slideIndex * 100}%)`;
+            currentSlide = slideIndex;
+            
+            // به‌روزرسانی نشانگرها
+            indicators.forEach((ind, index) => {
+                ind.classList.toggle('active', index === slideIndex);
+            });
+        }
+        
+        // رفتن به اسلاید بعدی
+        function nextSlide() {
+            if (currentSlide < slideCount - 1) {
+                goToSlide(currentSlide + 1);
+            } else {
+                goToSlide(0);
+            }
+        }
+        
+        // رفتن به اسلاید قبلی
+        function prevSlide() {
+            if (currentSlide > 0) {
+                goToSlide(currentSlide - 1);
+            } else {
+                goToSlide(slideCount - 1);
+            }
+        }
+        
+        // رویدادهای دکمه‌ها
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // نشانگرها
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+        
+        // تغییر خودکار اسلایدها
+        setInterval(nextSlide, 5000);
+        
+        // اسکریپت ساده برای اسکرول نرم
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // شبیه‌سازی خرید
+        document.querySelectorAll('.buy-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const title = this.closest('.song-card').querySelector('.song-title').textContent;
+                alert(`در حال انتقال به درگاه پرداخت برای خرید "${title}"...\n\n(این نسخه دمو است)`);
+            });
+        });
+        
+        // افکت‌های تعاملی برای دکمه‌ها
+        document.querySelectorAll('.stream-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.querySelector('i').className.split(' ')[1].split('-')[1];
+                const title = this.closest('.song-card').querySelector('.song-title').textContent;
+                alert(`در حال انتقال به ${platform} برای پخش "${title}"...\n\n(این نسخه دمو است)`);
+            });
+        });
+        
+        // نمایش صفحه آهنگ
+        function showSongPage(songTitle) {
+            document.getElementById('song-page-title').textContent = songTitle;
+            document.getElementById('song-page').style.display = 'block';
+            window.scrollTo({
+                top: document.getElementById('song-page').offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+        
+        // بستن صفحه آهنگ (اضافه نشده به رابط کاربری در این دمو)
+    </script>
+</body>
+</html>
